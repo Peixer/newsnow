@@ -366,10 +366,16 @@ export const originSources = {
   },
   "juejin": {
     name: "Juejin",
+    type: "hottest",
     column: "tech",
     color: "blue",
-    type: "hottest",
     home: "https://juejin.cn",
+  },
+  "techcrunch": {
+    name: "TechCrunch",
+    color: "green",
+    column: "tech",
+    home: "https://techcrunch.com",
   },
 } as const satisfies Record<string, OriginSource>
 

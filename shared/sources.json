@@ -466,5 +466,12 @@
     "home": "https://juejin.cn",
     "color": "blue",
     "interval": 600000
+  },
+  "techcrunch": {
+    "name": "TechCrunch",
+    "column": "tech",
+    "home": "https://techcrunch.com",
+    "color": "green",
+    "interval": 600000
   }
 }
