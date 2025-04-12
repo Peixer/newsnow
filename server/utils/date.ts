@@ -26,51 +26,51 @@ function words() {
   return [
     {
       startAt: dayjs(),
-      regExp: /^(?:今[天日]|to?day?)(.*)/,
+      regExp: /^(?:今[天日]|to?day?)(.*)/i,
     },
     {
       startAt: dayjs().subtract(1, "days"),
-      regExp: /^(?:昨[天日]|y(?:ester)?day?)(.*)/,
+      regExp: /^(?:昨[天日]|y(?:ester)?day?)(.*)/i,
     },
     {
       startAt: dayjs().subtract(2, "days"),
-      regExp: /^(?:前天|(?:the)?d(?:ay)?b(?:eforeyesterda)?y)(.*)/,
+      regExp: /^(?:前天|(?:the)?d(?:ay)?b(?:eforeyesterda)?y)(.*)/i,
     },
     {
       startAt: dayjs().isSameOrBefore(dayjs().weekday(1)) ? dayjs().weekday(1).subtract(1, "week") : dayjs().weekday(1),
-      regExp: /^(?:周|星期)一(.*)/,
+      regExp: /^(?:(?:周|星期)一|mon(?:day)?)(.*)/i,
     },
     {
       startAt: dayjs().isSameOrBefore(dayjs().weekday(2)) ? dayjs().weekday(2).subtract(1, "week") : dayjs().weekday(2),
-      regExp: /^(?:周|星期)二(.*)/,
+      regExp: /^(?:(?:周|星期)二|tue(?:s(?:day)?)?)(.*)/i,
     },
     {
       startAt: dayjs().isSameOrBefore(dayjs().weekday(3)) ? dayjs().weekday(3).subtract(1, "week") : dayjs().weekday(3),
-      regExp: /^(?:周|星期)三(.*)/,
+      regExp: /^(?:(?:周|星期)三|wed(?:nesday)?)(.*)/i,
     },
     {
       startAt: dayjs().isSameOrBefore(dayjs().weekday(4)) ? dayjs().weekday(4).subtract(1, "week") : dayjs().weekday(4),
-      regExp: /^(?:周|星期)四(.*)/,
+      regExp: /^(?:(?:周|星期)四|thu(?:rs(?:day)?)?)(.*)/i,
     },
     {
       startAt: dayjs().isSameOrBefore(dayjs().weekday(5)) ? dayjs().weekday(5).subtract(1, "week") : dayjs().weekday(5),
-      regExp: /^(?:周|星期)五(.*)/,
+      regExp: /^(?:(?:周|星期)五|fri(?:day)?)(.*)/i,
     },
     {
       startAt: dayjs().isSameOrBefore(dayjs().weekday(6)) ? dayjs().weekday(6).subtract(1, "week") : dayjs().weekday(6),
-      regExp: /^(?:周|星期)六(.*)/,
+      regExp: /^(?:(?:周|星期)六|sat(?:urday)?)(.*)/i,
     },
     {
       startAt: dayjs().isSameOrBefore(dayjs().weekday(7)) ? dayjs().weekday(7).subtract(1, "week") : dayjs().weekday(7),
-      regExp: /^(?:周|星期)[天日](.*)/,
+      regExp: /^(?:(?:周|星期)[天日]|sun(?:day)?)(.*)/i,
     },
     {
       startAt: dayjs().add(1, "days"),
-      regExp: /^(?:明[天日]|y(?:ester)?day?)(.*)/,
+      regExp: /^(?:明[天日]|to?mo?(?:rrow)?)(.*)/i,
     },
     {
       startAt: dayjs().add(2, "days"),
-      regExp: /^(?:[后後][天日]|(?:the)?d(?:ay)?a(?:fter)?t(?:omrrow)?)(.*)/,
+      regExp: /^(?:[后後][天日]|(?:the)?d(?:ay)?a(?:fter)?t(?:omorrow)?)(.*)/i,
     },
   ]
 }
@@ -144,7 +144,7 @@ function toDurations(matches: string[]) {
 export const parseDate = (date: string | number, ...options: any) => dayjs(date, ...options).toDate()
 
 export function parseRelativeDate(date: string, timezone: string = "UTC") {
-  if (date === "刚刚") return new Date()
+  if (date === "刚刚" || date.toLowerCase() === "just now") return new Date()
   // 预处理日期字符串 date
 
   const theDate = toDate(date)
