@@ -377,6 +377,12 @@ export const originSources = {
     column: "tech",
     home: "https://techcrunch.com",
   },
+  "coindesk": {
+    name: "Coindesk",
+    color: "yellow",
+    column: "crypto",
+    home: "https://www.coindesk.com",
+  },
 } as const satisfies Record<string, OriginSource>
 
 export function genSources() {

@@ -15,6 +15,9 @@ export const columns = {
   finance: {
     en: "Finance",
   },
+  crypto: {
+    en: "Cryptocurrency",
+  },
   focus: {
     en: "Focus",
   },

@@ -473,5 +473,12 @@
     "home": "https://techcrunch.com",
     "color": "green",
     "interval": 600000
+  },
+  "coindesk": {
+    "name": "Coindesk",
+    "column": "crypto",
+    "home": "https://www.coindesk.com",
+    "color": "yellow",
+    "interval": 600000
   }
 }
